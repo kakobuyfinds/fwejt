@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iTaoBuy spreadsheet | CAFANS Finds, USD Prices &amp; QC Checklist</title>
+  <meta name="description" content="Browse iTaoBuy spreadsheet finds from the CAFANS catalog, compare estimated USD prices, and use a practical checklist for sizing, QC photos, and shipping quotes.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iTaoBuy spreadsheet | CAFANS Product Finds">
+  <meta property="og:description" content="Compare CAFANS product finds and check sizing, warehouse photos, and shipping costs before ordering.">
+  <!-- index.html
+    Search research reviewed itaobuysheets.com, itaobuy-spreadsheet.net,
+    chinagrails.com/en/spreadsheet/agent/itaobuy, and sopel.fit/itaobuy-spreadsheet.
+    Competing pages emphasize catalog breadth, filters, QC photos, and shipping tools.
+    This page offers a compact CAFANS catalog with source links visible without JavaScript,
+    a downloadable comparison sheet, and item-specific checks alongside each price.
+    Exact Google positions vary by location and were not verified.
+    Catalog source: https://cafans.com/ — Featured Product Finds.
+    Indexing status: not submitted. The public deployment URL was not supplied.
+    Once deployed, add a self-referencing canonical with the final HTTPS URL.
+    Request indexing in Google Search Console and Bing Webmaster Tools using the
+    verified property and its URL Inspection tool.
+    Google: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
+    Bing: https://www.bing.com/webmasters/help/url-inspection-55a30305
+  -->
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182922;
+      --muted: #50645a;
+      --green: #14513b;
+      --line: #d6e2d8;
+      --paper: #f5f7f0;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
+    a { color: var(--green); text-underline-offset: .2em; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid #24704c;
+      outline-offset: 4px;
+    }
+    .wrap { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    .hero { padding: clamp(3.5rem, 9vw, 7rem) 1rem; background: #14392c; color: var(--white); text-align: center; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 1rem; font: 700 clamp(2.5rem, 7vw, 5.4rem)/1.04 Georgia, serif; letter-spacing: -.04em; }
+    h2 { margin-bottom: .65rem; font: 700 clamp(1.8rem, 4vw, 2.7rem)/1.15 Georgia, serif; }
+    h3 { margin-bottom: .4rem; font-size: 1.08rem; line-height: 1.3; }
+    .hero p { max-width: 40rem; margin: 0 auto 1.5rem; color: #dce9df; }
+    .actions, .filters { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+    .actions { justify-content: center; }
+    .button, button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 2.75rem; padding: .55rem .95rem; border-radius: .65rem;
+      border: 1px solid var(--green); background: var(--white); color: var(--green);
+      font: inherit; font-weight: 650; text-decoration: none; cursor: pointer;
+    }
+    .hero .button:first-child { background: #d7efaf; border-color: #d7efaf; color: #14392c; }
+    .hero .button + .button { background: transparent; border-color: #a4c6b2; color: var(--white); }
+    .hero a:focus-visible { outline-color: #d7efaf; }
+    main > section { margin-block: 2.75rem; }
+    .lede { color: var(--muted); max-width: 46rem; }
+    .filters { margin-bottom: 1rem; }
+    .filters [aria-pressed="true"] { background: var(--green); color: var(--white); }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .card, .panel { border: 1px solid var(--line); border-radius: 1rem; background: var(--white); overflow: hidden; }
+    .card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #edf0e8; }
+    .card-body { padding: 1rem; }
+    .category, .note { color: var(--muted); font-size: .88rem; }
+    .category { margin-bottom: .35rem; }
+    .price { margin-bottom: .55rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .note { margin-bottom: 0; }
+    .panel { padding: clamp(1rem, 4vw, 2rem); }
+    li + li { margin-top: .55rem; }
+    details { padding: .85rem 0; border-top: 1px solid var(--line); }
+    details p { margin: .6rem 0 0; }
+    summary { cursor: pointer; font-weight: 700; }
+    footer { border-top: 1px solid var(--line); padding: 1rem 0; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 56rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 28rem) { .grid { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "iTaoBuy spreadsheet",
+      "inLanguage": "en",
+      "description": "An independent guide to comparing CAFANS product finds, checking warehouse photos, and preparing a shipping estimate.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Selected CAFANS catalog finds",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Leather Slides","url":"https://cafans.com/goods-158791.html"},
+          {"@type":"ListItem","position":2,"name":"Sweatshirt","url":"https://cafans.com/goods-158792.html"},
+          {"@type":"ListItem","position":3,"name":"Unisex Embroidered Oversized T-Shirt","url":"https://cafans.com/goods-158200.html"},
+          {"@type":"ListItem","position":4,"name":"Corteiz Jacket","url":"https://cafans.com/goods-158279.html"}
+        ]
+      }
+    }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/fwejt/">
+</head>
+<body>
+  <header class="hero">
+    <h1>iTaoBuy spreadsheet</h1>
+    <p>Compare shoes and streetwear from the CAFANS catalog. Save the exact listing and size, then check warehouse photos and shipping costs before approving a parcel.</p>
+    <div class="actions">
+      <a class="button" href="https://cafans.com">iTaoBuy spreadsheet</a>
+      <a class="button" href="https://cafans.com">Buy it now</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="start-title">
+      <h2 id="start-title">Build a shortlist you can verify</h2>
+      <p class="lede">An iTaoBuy spreadsheet is a way to organize product links before buying through a shopping agent. Start with the CAFANS listings below. Open a product to find the original seller link, then check whether iTaoBuy accepts that link and supports your destination.</p>
+    </section>
+
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">CAFANS product catalog</h2>
+      <p class="lede">These listings come from CAFANS Featured Product Finds. The estimates shown are in USD and exclude shipping. Open each listing to verify the current price and options.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter catalog by category" hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="shoes" aria-pressed="false">Shoes</button>
+        <button type="button" data-filter="hoodies" aria-pressed="false">Hoodies &amp; sweatshirts</button>
+        <button type="button" data-filter="shirts" aria-pressed="false">T-shirts</button>
+        <button type="button" data-filter="jackets" aria-pressed="false">Jackets</button>
+      </div>
+      <p class="note" id="catalog-count" role="status" hidden></p>
+      <div class="grid" id="catalog">
+        <article class="card" data-category="shoes" data-price="62.36">
+          <img src="https://si.geilicdn.com/open1769158365-252808396-70340000019822fe6f2d0a23b491_1200_1200.jpg" alt="Leather Slides listing photo" width="1200" height="1200" loading="lazy" decoding="async">
+          <div class="card-body">
+            <p class="category">Shoes</p>
+            <h3><a href="https://cafans.com/goods-158791.html">Leather Slides</a></h3>
+            <p class="price">$62.36 USD</p>
+            <p class="note">Compare foot length with the seller’s size chart.</p>
+          </div>
+        </article>
+        <article class="card" data-category="hoodies" data-price="27.50">
+          <img src="https://si.geilicdn.com/open1862809525-1234478995-56360000019a9d1b5cc60aa081c2_1200_1200.jpg" alt="Sweatshirt listing photo" width="1200" height="1200" loading="lazy" decoding="async">
+          <div class="card-body">
+            <p class="category">Hoodies &amp; sweatshirts</p>
+            <h3><a href="https://cafans.com/goods-158792.html">Sweatshirt</a></h3>
+            <p class="price">$27.50 USD</p>
+            <p class="note">Check body length and chest width against a sweatshirt you own.</p>
+          </div>
+        </article>
+        <article class="card" data-category="shirts" data-price="32.64">
+          <img src="https://si.geilicdn.com/open1792148229-1234478995-4b8f00000196ff70111b0aa08290_1066_1066.jpg" alt="Unisex Embroidered Oversized T-Shirt listing photo" width="1066" height="1066" loading="lazy" decoding="async">
+          <div class="card-body">
+            <p class="category">T-shirts</p>
+            <h3><a href="https://cafans.com/goods-158200.html">Unisex Embroidered Oversized T-Shirt</a></h3>
+            <p class="price">$32.64 USD</p>
+            <p class="note">Check shoulder width and embroidery placement if QC photos are available.</p>
+          </div>
+        </article>
+        <article class="card" data-category="jackets" data-price="42.78">
+          <img src="https://si.geilicdn.com/open1806012509-1234478995-093600000197108e2db10a8115c2_1000_1000.jpg" alt="Corteiz Jacket listing photo" width="1000" height="1000" loading="lazy" decoding="async">
+          <div class="card-body">
+            <p class="category">Jackets</p>
+            <h3><a href="https://cafans.com/goods-158279.html">Corteiz Jacket</a></h3>
+            <p class="price">$42.78 USD</p>
+            <p class="note">Check sleeve length and the closure, then ask for packed dimensions.</p>
+          </div>
+        </article>
+      </div>
+      <p style="margin: 1rem 0 0"><a href="https://cafans.com">Browse the full catalog on CAFANS</a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="check-title">
+      <h2 id="check-title">What to check before ordering</h2>
+      <ol>
+        <li><strong>Save the exact variant.</strong> Keep the original seller URL, color, size, and measurements in one row. Record when you checked the price.</li>
+        <li><strong>Review the return window.</strong> Check when it starts and who pays return shipping. If your agent provides warehouse QC photos, match the size tag and variant to your order and look for visible damage.</li>
+        <li><strong>Compare shipping quotes for the same parcel.</strong> Use the same destination, packed dimensions, and weight. Ask which weight the route bills on and whether the quote includes insurance or other fees.</li>
+        <li><strong>Add up the full cost.</strong> Combine the item price, seller-to-warehouse delivery, agent fees, international shipping, and applicable taxes or duties. Convert each amount to the same currency before comparing quotes.</li>
+      </ol>
+      <button type="button" id="download" hidden>Download comparison CSV</button>
+    </section>
+
+    <section class="panel" aria-labelledby="faq-title">
+      <h2 id="faq-title">iTaoBuy spreadsheet FAQ</h2>
+      <details>
+        <summary>Where do the two buttons take me?</summary>
+        <p>Both open the CAFANS homepage, where you can browse the catalog. Ordering happens through the seller or shopping agent you choose.</p>
+      </details>
+      <details>
+        <summary>Are the displayed prices shipping-inclusive?</summary>
+        <p>The cards show estimated item prices. Check the original seller listing for the current price, then ask your agent for a separate shipping quote.</p>
+      </details>
+      <details>
+        <summary>What’s the difference between a listing photo and a QC photo?</summary>
+        <p>A listing photo shows what the seller advertises. A warehouse QC photo, when available, shows the item received for your order. Use it to check details such as the color, size tag, and visible condition.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Independent shopping guide. Catalog listings and estimated prices are sourced from <a href="https://cafans.com">CAFANS</a>.</div>
+  </footer>
+
+  <script>
+    (() => {
+      const filters = document.getElementById('filters');
+      const buttons = [...filters.querySelectorAll('button')];
+      const cards = [...document.querySelectorAll('#catalog article')];
+      const count = document.getElementById('catalog-count');
+      const download = document.getElementById('download');
+
+      filters.hidden = false;
+      download.hidden = false;
+
+      filters.addEventListener('click', (event) => {
+        const selected = event.target.closest('button[data-filter]');
+        if (!selected) return;
+
+        const category = selected.dataset.filter;
+        for (const button of buttons) {
+          button.setAttribute('aria-pressed', String(button === selected));
+        }
+        for (const card of cards) {
+          card.hidden = category !== 'all' && card.dataset.category !== category;
+        }
+
+        const shown = cards.filter((card) => !card.hidden).length;
+        count.hidden = false;
+        count.textContent = `Showing ${shown} of ${cards.length} listings.`;
+      });
+
+      download.addEventListener('click', () => {
+        const rows = [[
+          'Product', 'CAFANS listing', 'Estimated item price USD', 'Original seller link',
+          'Variant and size', 'Measurements', 'Price checked on', 'QC notes',
+          'Domestic delivery USD', 'Agent fees USD', 'International shipping USD',
+          'Taxes and duties USD', 'Total USD'
+        ]];
+
+        for (const card of cards) {
+          const product = card.querySelector('h3 a');
+          rows.push([
+            product.textContent.trim(), product.href, card.dataset.price,
+            '', '', '', '', '', '', '', '', '', ''
+          ]);
+        }
+
+        const csv = rows.map((row) =>
+          row.map((cell) => `"${cell.replaceAll('"', '""')}"`).join(',')
+        ).join('\r\n') + '\r\n';
+        const url = URL.createObjectURL(new Blob(['\uFEFF', csv], { type: 'text/csv;charset=utf-8' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'itaobuy-spreadsheet.csv';
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+    })();
+  </script>
+</body>
+</html>
